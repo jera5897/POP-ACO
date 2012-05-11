@@ -1,7 +1,7 @@
 %% Author: Opo
 %% Created: 11 maj 2012
 %% Description: TODO: Add description to unittest_hello
--module(unittest_hello).
+-module(helloTest).
 -include_lib("eunit/include/eunit.hrl").
 
 

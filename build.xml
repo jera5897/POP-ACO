@@ -1,0 +1,33 @@
+<project name="POP-ACO" default="compilePy">
+	
+	<taskdef resource="pyAntTasks.properties"/>
+	<taskdef resource="antlib.xml"/>
+	
+	<property name="src.dir" value="src"/>
+	<property name="test.dir" value="test"/>
+	<property name="ebin.dir" value="ebin"/>
+	
+	<target name="compilePy">
+		<py-compile dir="${src.dir}" pythonpath="${src.dir}" optimize="0"/>
+		<py-compile dir="${test.dir}" pythonpath="${test.dir}" optimize="0"/>
+	</target>
+	
+	<target name="compileErl">
+		<erlc outputdir="${ebin.dir}">
+			<fileset dir="${src.dir}"/>
+		</erlc>
+	</target>
+	
+	<target name="testsPy" depends="compilePy">
+		<py-test pythonpath="${test.dir}" dir=".">
+			<fileset dir="${test.dir}">
+				<include name="**/*Test.py"/>
+			</fileset>
+		</py-test>
+	</target>
+	
+	<target name="run.gui" depends="compilePy">
+		<py-run script="src/gui.py" pythonpath="${src.dir}" optimize="0">
+		</py-run>
+	</target>
+</project>

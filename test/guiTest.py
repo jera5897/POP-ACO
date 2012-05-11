@@ -1,7 +1,6 @@
-import antworld
 import unittest
 
-class test_antworld(unittest.TestCase):
+class guiTest(unittest.TestCase):
     
     def setUp(self):
         pass

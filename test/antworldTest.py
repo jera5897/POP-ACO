@@ -1,7 +1,6 @@
-import gui
 import unittest
 
-class test_gui(unittest.TestCase):
+class antworldTest(unittest.TestCase):
     
     def setUp(self):
         pass
