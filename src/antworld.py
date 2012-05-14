@@ -2,7 +2,7 @@ import sys
 from erlport import Port, Protocol
 from erlport import Atom, String
 
-import gui
+import gui,time,random
 
 class EventHandler(Protocol):
     
@@ -24,6 +24,13 @@ class AntWorld:
         self.message = message
         self.handler = handler
         self.world = gui.Gui(self, self.message, self.handler)
+	self.world.start()
+
+	#TESTCODE
+	while True:	
+		self.world.updatePos(random.randrange(0,400), random.randrange(0,400),0)
+		time.sleep(0.1)
+	#TESTCODE
 
         #self.world.print_message(self.message)
 

@@ -1,9 +1,10 @@
-import random, sys, time
+import random, sys
 from Tkinter import *
+from threading import Thread
 
 import antworld
 
-class Gui:
+class Gui(Thread):
 
     def __init__(self, world=None, message=None, handler=None, parent=None):
         self.canvas = Canvas(width=400, height=400, bg='green')
@@ -13,13 +14,10 @@ class Gui:
         self.aw = world
         self.handler = handler
         self.print_message(message)
+	Thread.__init__(self)
 
-	#TESTCODE
-	while True:
-		#self.print_message(message)
-		self.updatePos(0)	
-		time.sleep(0.1)
-	#TESTCODE
+    def run(self):
+	mainloop()
 
     def onClick(self, event):
         #self.print_message(self.handler)
@@ -38,13 +36,18 @@ class Gui:
     def clear(self):
         self.canvas.delete('all')
 
-    def updatePos(self, type):
-	x = random.randrange(50, 350)
-	y = random.randrange(50, 350)
-	entitySize = 2
+    def updatePos(self, x, y, type):
+	if type == 0:
+		entitySize = 2
+		color = "black"
+	elif type == 1:
+		entitySize = 2
+		color = "green"
+	elif type == 2:
+		entitySize = 5
+		color = "red"
 	box = [x,y,x+entitySize,y+entitySize]
-	self.canvas.create_rectangle(box,fill="black")
-	self.canvas.update()
+	self.canvas.create_rectangle(box,fill=color)
 
 
 if __name__ == '__main__':
