@@ -47,7 +47,7 @@ class Gui(Thread):
 		entitySize = 5
 		color = "red"
 	box = [x,y,x+entitySize,y+entitySize]
-	self.canvas.create_rectangle(box,fill=color)
+	self.canvas.create_rectangle(box,outline=color,fill=color)
 
 
 if __name__ == '__main__':

@@ -26,10 +26,15 @@ class AntWorld:
         self.world = gui.Gui(self, self.message, self.handler)
 	self.world.start()
 
+	x = 200
+	y = 10
 	#TESTCODE
 	while True:	
-		self.world.updatePos(random.randrange(0,400), random.randrange(0,400),0)
-		time.sleep(0.1)
+		self.world.updatePos(x,y,1)
+		x = x + random.randrange(-1,2)
+		y = y + random.randrange(0,2)
+		self.world.updatePos(x,y,0)
+		time.sleep(0.01)
 	#TESTCODE
 
         #self.world.print_message(self.message)
