@@ -24,6 +24,7 @@ class AntWorld:
         self.message = message
         self.handler = handler
         self.world = gui.Gui(self, self.message, self.handler)
+
         #self.world.print_message(self.message)
 
 

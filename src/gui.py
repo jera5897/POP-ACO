@@ -14,7 +14,12 @@ class Gui:
         self.handler = handler
         self.print_message(message)
 
-        mainloop()
+	#TESTCODE
+	while True:
+		#self.print_message(message)
+		self.updatePos(0)	
+		time.sleep(0.1)
+	#TESTCODE
 
     def onClick(self, event):
         #self.print_message(self.handler)
@@ -32,6 +37,14 @@ class Gui:
 
     def clear(self):
         self.canvas.delete('all')
+
+    def updatePos(self, type):
+	x = random.randrange(50, 350)
+	y = random.randrange(50, 350)
+	entitySize = 2
+	box = [x,y,x+entitySize,y+entitySize]
+	self.canvas.create_rectangle(box,fill="black")
+	self.canvas.update()
 
 
 if __name__ == '__main__':

@@ -6,7 +6,7 @@ class guiTest(unittest.TestCase):
         pass
         
     def testBla(self):
-        self.assertEqual(1 + 1, 3)
+        self.assertEqual(1 + 1, 2)
 
     def  testAAAA(self):
         assert 1 == 1, "1 ska vara 1"
